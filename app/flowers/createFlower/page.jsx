@@ -1,12 +1,19 @@
 "use client";
-import { useState } from "react";
+import { useState, useNavigate } from "react";
+import axios from "axios";
 
 export default function createFlower() {
   const [inputs, setInputs] = useState({});
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(inputs);
+
+    axios
+      .post("http://localhost:80/api/flowers/save", inputs)
+      .then((response) => {
+        console.log(response.data);
+        useNavigate("/");
+      });
   };
 
   const handleChange = (event) => {
