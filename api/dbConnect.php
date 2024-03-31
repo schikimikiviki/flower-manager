@@ -20,5 +20,6 @@ function connect() {
 
    
     return $conn;
+    //TEST
 }
 ?>
