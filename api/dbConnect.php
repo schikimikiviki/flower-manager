@@ -6,6 +6,8 @@ require_once __DIR__ . '/vendor/autoload.php'; // Include the Composer autoloade
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
+echo "";
+
 function connect() {
      $server = $_ENV['SERVER'];
      $user= $_ENV['USER'];
@@ -20,6 +22,6 @@ function connect() {
 
    
     return $conn;
-    //TEST
+    //Test
 }
 ?>
