@@ -12,10 +12,12 @@ export default function listFlower() {
   }, []);
 
   const getFlowers = () => {
-    axios.get("http://localhost:80/api/flowers").then((response) => {
-      console.log(response.data);
-      setFlowers(response.data);
-    });
+    axios
+      .get("http://localhost:80/flower-manager-crud/api/flowers")
+      .then((response) => {
+        console.log(response.data);
+        setFlowers(response.data);
+      });
   };
 
   return (
@@ -40,25 +42,25 @@ export default function listFlower() {
             </tr>
           </thead>
           <tbody>
-            {flowers.map((flower, key) => {
+            {flowers.map((flower, key) => (
               <tr key={key}>
                 <td>{flower.id}</td>
-                <td>{flower.name}</td>
-                <td>{flower.description}</td>
-                <td>{flower.maintenance}</td>
-                <td>{flower.location}</td>
-                <td>{flower.color}</td>
-                <td>{flower.winter_care_tips}</td>
-                <td>{flower.how_to_use}</td>
-                <td>{flower.propagation}</td>
+                <td>{flower.Name}</td>
+                <td>{flower.Description}</td>
+                <td>{flower.Maintenance}</td>
+                <td>{flower.Location}</td>
+                <td>{flower.Color}</td>
+                <td>{flower.Winter_care_tips}</td>
+                <td>{flower.How_to_use}</td>
+                <td>{flower.Propagation}</td>
                 <td>{flower.worth_knowing}</td>
                 <td>{flower.created_at}</td>
                 <td>
-                  <Link to={`flowers/${flower.id}/edit`}>Edit</Link>
-                  <Link to={`flowers/${flower.id}/delete`}>Delete</Link>
+                  <Link href={`flowers/${flower.id}/edit`}>Edit</Link>
+                  <Link href={`flowers/${flower.id}/delete`}>Delete</Link>
                 </td>
-              </tr>;
-            })}
+              </tr>
+            ))}
             <tr></tr>
           </tbody>
         </table>
