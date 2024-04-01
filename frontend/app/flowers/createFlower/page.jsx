@@ -9,10 +9,10 @@ export default function createFlower() {
     e.preventDefault();
 
     axios
-      .post("http://localhost:80/api/flowers/save", inputs)
+      .post("http://localhost:80/flower-manager-crud/api/flowers/save", inputs)
       .then((response) => {
         console.log(response.data);
-        useNavigate("/");
+        // useNavigate("/");
       });
   };
 
@@ -77,6 +77,9 @@ export default function createFlower() {
           name="worth_knowing"
           onChange={handleChange}
         ></input>
+
+        <label>Picture</label>
+        <input type="picture" name="picture" onChange={handleChange}></input>
 
         <button type="submit">Submit</button>
       </form>

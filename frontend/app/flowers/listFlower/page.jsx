@@ -16,7 +16,9 @@ export default function listFlower() {
       .get("http://localhost:80/flower-manager-crud/api/flowers")
       .then((response) => {
         console.log(response.data);
-        setFlowers(response.data);
+
+        let flowerData = response.data;
+        setFlowers(flowerData);
       });
   };
 
@@ -39,28 +41,31 @@ export default function listFlower() {
               <th>Worth knowing</th>
               <th>Created at</th>
               <th>Actions</th>
+              <th>Picture Link</th>
             </tr>
           </thead>
           <tbody>
-            {flowers.map((flower, key) => (
-              <tr key={key}>
-                <td>{flower.id}</td>
-                <td>{flower.Name}</td>
-                <td>{flower.Description}</td>
-                <td>{flower.Maintenance}</td>
-                <td>{flower.Location}</td>
-                <td>{flower.Color}</td>
-                <td>{flower.Winter_care_tips}</td>
-                <td>{flower.How_to_use}</td>
-                <td>{flower.Propagation}</td>
-                <td>{flower.worth_knowing}</td>
-                <td>{flower.created_at}</td>
-                <td>
-                  <Link href={`flowers/${flower.id}/edit`}>Edit</Link>
-                  <Link href={`flowers/${flower.id}/delete`}>Delete</Link>
-                </td>
-              </tr>
-            ))}
+            {flowers.length > 0 &&
+              flowers.map((flower, key) => (
+                <tr key={key}>
+                  <td>{flower.id}</td>
+                  <td>{flower.Name}</td>
+                  <td>{flower.Description}</td>
+                  <td>{flower.Maintenance}</td>
+                  <td>{flower.Location}</td>
+                  <td>{flower.Color}</td>
+                  <td>{flower.Winter_care_tips}</td>
+                  <td>{flower.How_to_use}</td>
+                  <td>{flower.Propagation}</td>
+                  <td>{flower.worth_knowing}</td>
+                  <td>{flower.created_at}</td>
+                  <td>{flower.picture}</td>
+                  <td>
+                    <Link href={`flowers/${flower.id}/edit`}>Edit</Link>
+                    <Link href={`flowers/${flower.id}/delete`}>Delete</Link>
+                  </td>
+                </tr>
+              ))}
             <tr></tr>
           </tbody>
         </table>
