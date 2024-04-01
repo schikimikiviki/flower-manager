@@ -41,7 +41,6 @@ export default function listFlower() {
               <th>Worth knowing</th>
               <th>Created at</th>
               <th>Actions</th>
-              <th>Picture Link</th>
             </tr>
           </thead>
           <tbody>
@@ -59,7 +58,6 @@ export default function listFlower() {
                   <td>{flower.Propagation}</td>
                   <td>{flower.worth_knowing}</td>
                   <td>{flower.created_at}</td>
-                  <td>{flower.picture}</td>
                   <td>
                     <Link href={`flowers/${flower.id}/edit`}>Edit</Link>
                     <Link href={`flowers/${flower.id}/delete`}>Delete</Link>

@@ -16,6 +16,8 @@ if (!$conn) {
     die("Failed to connect to the database.");
 }
 
+
+
 populateDatabase();
 
 $method = $_SERVER["REQUEST_METHOD"];
@@ -43,6 +45,8 @@ switch ($endpoint) {
         echo json_encode(['error' => 'Not found']);
         break;
 }
+
+
 
 
 function handleFlowersRequest()

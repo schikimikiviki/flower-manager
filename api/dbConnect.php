@@ -25,6 +25,9 @@ function connect()
 
 function populateDatabase()
 {
+    if (isDatabasePopulated()) {
+        return;
+    }
 
     global $conn;
 
@@ -77,6 +80,16 @@ function populateDatabase()
         // Close the statement inside the loop
         $statement->close();
     }
+}
+
+function isDatabasePopulated()
+{
+    global $conn;
+
+    $sql = "SELECT * FROM flowers WHERE name = 'Lily' LIMIT 1";
+    $result = $conn->query($sql);
+
+    return $result && $result->num_rows > 0;
 }
 
 
