@@ -32,13 +32,7 @@ export default function listFlower() {
               <th>#</th>
               <th>Name</th>
               <th>Description</th>
-              <th>Maintenance</th>
-              <th>Location</th>
               <th>Color</th>
-              <th>Winter Care Tips</th>
-              <th>How to use</th>
-              <th>Propagation</th>
-              <th>Worth knowing</th>
               <th>Created at</th>
               <th>Actions</th>
             </tr>
@@ -48,19 +42,16 @@ export default function listFlower() {
               flowers.map((flower, key) => (
                 <tr key={key}>
                   <td>{flower.id}</td>
-                  <td>{flower.Name}</td>
+                  <td>{flower.name}</td>
                   <td>{flower.Description}</td>
-                  <td>{flower.Maintenance}</td>
-                  <td>{flower.Location}</td>
                   <td>{flower.Color}</td>
-                  <td>{flower.Winter_care_tips}</td>
-                  <td>{flower.How_to_use}</td>
-                  <td>{flower.Propagation}</td>
-                  <td>{flower.worth_knowing}</td>
                   <td>{flower.created_at}</td>
                   <td>
-                    <Link href={`flowers/${flower.id}/edit`}>Edit</Link>
-                    <Link href={`flowers/${flower.id}/delete`}>Delete</Link>
+                    <div style={{ display: "flex", gap: "10px" }}>
+                      <Link href={`flowers/${flower.id}`}>More</Link>
+                      <Link href={`flowers/${flower.id}/edit`}>Edit</Link>
+                      <Link href={`flowers/${flower.id}/delete`}>Delete</Link>
+                    </div>
                   </td>
                 </tr>
               ))}
